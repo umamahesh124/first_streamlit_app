@@ -28,25 +28,26 @@ streamlit.dataframe(fruits_selected)
 
 
 #New Section to display fruitvice advise
-streamlit.header ('Fruitvice Advice')
-fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
-streamlit.write('The user entered ', fruit_choice)
+#streamlit.header ('Fruitvice Advice')
+
+#streamlit.write('The user entered ', fruit_choice)
 
 #New Section to display Fruitvice
 #import requests
 
 streamlit.header("Fruityvice Fruit Advice!")
 try:
-  if not fruit_choice:
-    streamlit.error("Please select a fruit")
-   else:
-    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
+    fruit_choice = streamlit.text_input('What fruit would you like information about?')
+    if not fruit_choice:
+        streamlit.error("Please select a fruit")
+    else:
+        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
     #streamlit.dataframe(fruityvice_response)
     #streamlit.text(fruityvice_response.json())
-    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-    streamlit.dataframe(fruityvice_normalized)
+        fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+        streamlit.dataframe(fruityvice_normalized)
 except URLError as e:
-  streamlit.error()
+   streamlit.error()
 
 streamlit.stop()
 #import snowflake.connector
