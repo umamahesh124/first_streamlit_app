@@ -51,3 +51,6 @@ streamlit.header("The fruit list contains:")
 fruitlist_normalized=pandas.json_normalize(my_data_row)
 streamlit.dataframe(my_data_row)
 streamlit.dataframe(fruitlist_normalized)
+
+add_my_fruit = streamlit.text_input('What fruit would you like to add?')
+#streamlit.write('The user entered ', add_my_fruit)
