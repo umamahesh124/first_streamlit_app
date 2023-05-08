@@ -39,7 +39,7 @@ streamlit.header("Fruityvice Fruit Advice!")
 try:
   if not fruit_choice:
     streamlit.error("Please select a fruit")
-   else :
+   else:
     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
     #streamlit.dataframe(fruityvice_response)
     #streamlit.text(fruityvice_response.json())
