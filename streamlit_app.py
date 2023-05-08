@@ -48,5 +48,5 @@ my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * from fruit_load_list")
 my_data_row = my_cur.fetchall()
 streamlit.text("The fruit list contains:")
-streamlit.text(my_data_row.json())
+streamlit.text(pandas.json_normalize(my_data_row.json()))
 
