@@ -51,9 +51,9 @@ streamlit.dataframe(fruits_selected)
  
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" ,'kiwi')
 streamlit.dataframe(fruityvice_response)
-streamlit.text(fruityvice_response.json())
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-streamlit.dataframe(fruityvice_normalized)
+#streamlit.text(fruityvice_response.json())
+#fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+#streamlit.dataframe(fruityvice_normalized)
 #except URLError as e:
 #   streamlit.error()
 
