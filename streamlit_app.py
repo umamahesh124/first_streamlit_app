@@ -46,7 +46,7 @@ try:
     if not fruit_choice:
         streamlit.error("Please select a fruit")
     else:
-        back_from_function=get_fruityvice_data(fruit_Choice)
+        back_from_function = get_fruityvice_data(fruit_Choice)
         streamlit.dataframe(back_from_function)
  
 #fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
@@ -60,7 +60,7 @@ try:
 #streamlit.stop()
 #import snowflake.connector
 
-my_cnx = snowflake.connector.connect(streamlit.secrets["snowflake"])
+my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * from fruit_load_list")
 my_data_row = my_cur.fetchall()
