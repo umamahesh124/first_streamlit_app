@@ -36,10 +36,11 @@ streamlit.dataframe(fruits_selected)
 #import requests
 
 
-#def get_fruityvice_data(this_fruit_choice):
-#    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
-#    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-#    return fruityvice_normalized
+#create a negotiable function
+def get_fruityvice_data(this_fruit_choice):
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
+    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+    return fruityvice_normalized
 streamlit.header("Fruityvice Fruit Advice!")
 try:
    fruit_choice = streamlit.text_input('What fruit would you like information about?')
@@ -49,13 +50,13 @@ try:
        back_from_function = get_fruityvice_data(fruit_Choice)
        streamlit.dataframe(back_from_function)
  
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" ,'kiwi')
-streamlit.dataframe(fruityvice_response)
+#fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" ,'kiwi')
+#streamlit.dataframe(fruityvice_response)
 #streamlit.text(fruityvice_response.json())
 #fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 #streamlit.dataframe(fruityvice_normalized)
-except URLError as e:
-   streamlit.error()
+#except URLError as e:
+#   streamlit.error()
 
 #streamlit.stop()
 #import snowflake.connector
