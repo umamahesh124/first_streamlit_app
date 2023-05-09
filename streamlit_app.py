@@ -84,11 +84,11 @@ if streamlit.button('Add Fruit to List'):
    my_data_rows = insert_row_snowflake(add_my_fruit)
    streamlit.dataframe(my_data_rows)
 
-streamlit.write('Thanks for adding', add_my_fruit)
+#streamlit.write('Thanks for adding', add_my_fruit)
 
 def insert_row_snowflake(new_fruit):
     with my_cnx.cursor() as my_cur:
-         my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('kiwi')")
+         my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('"my_data_rows"')")
          return "Thanks for adding" + new_fruit   
 
 
