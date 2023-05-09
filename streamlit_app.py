@@ -60,16 +60,16 @@ try:
 #streamlit.stop()
 #import snowflake.connector
 
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
-my_cur.execute("SELECT * from fruit_load_list")
-my_data_row = my_cur.fetchall()
-streamlit.header("The fruit list contains:")
-fruitlist_normalized=pandas.json_normalize(my_data_row)
-streamlit.dataframe(my_data_row)
-streamlit.dataframe(fruitlist_normalized)
+#my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+#my_cur = my_cnx.cursor()
+#my_cur.execute("SELECT * from fruit_load_list")
+#my_data_row = my_cur.fetchall()
+#streamlit.header("The fruit list contains:")
+#fruitlist_normalized=pandas.json_normalize(my_data_row)
+#streamlit.dataframe(my_data_row)
+#streamlit.dataframe(fruitlist_normalized)
 
-add_my_fruit = streamlit.text_input('What fruit would you like to add?')
-streamlit.write('Thanks for adding', add_my_fruit)
+#add_my_fruit = streamlit.text_input('What fruit would you like to add?')
+#streamlit.write('Thanks for adding', add_my_fruit)
 
-my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from strimlit')")
+#my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from strimlit')")
