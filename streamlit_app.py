@@ -36,18 +36,18 @@ streamlit.dataframe(fruits_selected)
 #import requests
 
 
-def get_fruityvice_data(this_fruit_choice):
-    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
-    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-    return fruityvice_normalized
-streamlit.header("Fruityvice Fruit Advice!")
-try:
-    fruit_choice = streamlit.text_input('What fruit would you like information about?')
-    if not fruit_choice:
-        streamlit.error("Please select a fruit")
-    else:
-        back_from_function = get_fruityvice_data(fruit_Choice)
-        streamlit.dataframe(back_from_function)
+#def get_fruityvice_data(this_fruit_choice):
+#    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
+#    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+#    return fruityvice_normalized
+#streamlit.header("Fruityvice Fruit Advice!")
+#try:
+#    fruit_choice = streamlit.text_input('What fruit would you like information about?')
+#    if not fruit_choice:
+#        streamlit.error("Please select a fruit")
+#    else:
+#        back_from_function = get_fruityvice_data(fruit_Choice)
+#        streamlit.dataframe(back_from_function)
  
 #fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
     #streamlit.dataframe(fruityvice_response)
@@ -60,16 +60,16 @@ try:
 #streamlit.stop()
 #import snowflake.connector
 
-#my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-#my_cur = my_cnx.cursor()
-#my_cur.execute("SELECT * from fruit_load_list")
-#my_data_row = my_cur.fetchall()
-#streamlit.header("The fruit list contains:")
-#fruitlist_normalized=pandas.json_normalize(my_data_row)
-#streamlit.dataframe(my_data_row)
-#streamlit.dataframe(fruitlist_normalized)
+my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+my_cur = my_cnx.cursor()
+my_cur.execute("SELECT * from fruit_load_list")
+my_data_row = my_cur.fetchall()
+streamlit.header("The fruit list contains:")
+fruitlist_normalized=pandas.json_normalize(my_data_row)
+streamlit.dataframe(my_data_row)
+streamlit.dataframe(fruitlist_normalized)
 
-#add_my_fruit = streamlit.text_input('What fruit would you like to add?')
-#streamlit.write('Thanks for adding', add_my_fruit)
+add_my_fruit = streamlit.text_input('What fruit would you like to add?')
+streamlit.write('Thanks for adding', add_my_fruit)
 
-#my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from strimlit')")
+my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from strimlit')")
