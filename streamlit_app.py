@@ -49,7 +49,7 @@ streamlit.dataframe(fruits_selected)
 #        back_from_function = get_fruityvice_data(fruit_Choice)
 #        streamlit.dataframe(back_from_function)
  
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 streamlit.dataframe(fruityvice_response)
 streamlit.text(fruityvice_response.json())
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
